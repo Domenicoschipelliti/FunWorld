@@ -1,2 +1,3 @@
 # FunWorld
 Capstone Project
+Buongiorno sono Domenico Schipelliti ,volevo proporre la mia idea per il Capstone Project . Visto che mi piacciono gli anime, voglio fare una cosa simile a Myanimelist ovvero liste di anime/manga  nella quale si può visualizzare l'indice di gradimento nelle categorie apposite e anche poterle creare da un form da parte dell'utente e tutto questo verrà organizzato in React con eventuali icone e stili prese da Bootstrap. Ovviamente verranno precedute da una parte di register e login che comunicherà con il database PostgreSQL usando Java. In attesa di risposta vi auguro una buona giornata.
