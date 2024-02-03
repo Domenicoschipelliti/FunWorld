@@ -1,4 +1,4 @@
-package domenico.CapStoneProject.repositories;
+package domenico.CapStoneProject.payload;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
