@@ -18,8 +18,8 @@ public class UserController {
     private UserService userService;
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
-    public Page<User> getUsers(int size,int page,String order){
-       return userService.findAll(size,page,order);
+    public Page<User> getUsers(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "10") int size,@RequestParam(defaultValue = "userId") String order){
+       return userService.findAll(page,size,order);
     }
 
     @GetMapping("/{userId}")
