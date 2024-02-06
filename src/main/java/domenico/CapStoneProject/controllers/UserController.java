@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
@@ -63,6 +64,15 @@ public class UserController {
        userService.userDelete(userId.getUserId());
     }
 
+
+   //----------------user uplaod avatar
+
+    @PatchMapping("/{userId}/upload")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String uploadAvatarImg(@RequestParam("image") MultipartFile file, @PathVariable UUID userId) throws Exception {
+        return userService.uploadImageAvatar(file,userId);
+    }
 
 
 

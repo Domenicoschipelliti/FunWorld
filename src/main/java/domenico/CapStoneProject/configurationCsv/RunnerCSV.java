@@ -15,7 +15,7 @@ public class RunnerCSV implements CommandLineRunner {
     }
     @Override
     public void run(String... args) throws Exception {
-      String animeFile="./csv/anime.csv";
-      importCSV.importAnimeFromCsv(animeFile);
+      //String animeFile="./csv/anime.csv";
+      //importCSV.importAnimeFromCsv(animeFile);
     }
 }
