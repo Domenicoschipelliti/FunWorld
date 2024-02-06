@@ -18,7 +18,7 @@ public class AnimeService {
     }
 
     public Anime findByAnimeId(long id){
-       return animeDao.findById(id);
+       return animeDao.findById(id).orElseThrow(()->new NotFound(id));
     }
 
     public Anime saveAnime(Anime anime){
@@ -26,7 +26,7 @@ public class AnimeService {
     }
 
 
-    public Anime findbyAnimeId(long id){
+    public Anime findbyAnimeId(int id){
         Anime found=animeDao.findById(id);
 
         if (found!=null){

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnimeDao extends JpaRepository<Anime,Long> {
-    Anime findById(long id);
+    Anime findById(int id);
 }
