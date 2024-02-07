@@ -68,7 +68,7 @@ public class AnimeService {
 
 
     public  String uploadImage(MultipartFile file, int id) throws IOException {
-        Anime found = this.findByAnimeId(id);
+        Anime found = this.findbyAnimeId(id);
         String url = (String) cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap()).get("url");
         found.setImmagine(url);
         animeDao.save(found);

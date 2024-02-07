@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/anime")
@@ -23,6 +23,13 @@ public class AnimeController {
    public List<Anime> findallAnime(){
        return animeService.findAllAnime();
    }
+
+   @GetMapping("/{id}")
+   @PreAuthorize("hasAuthority('ADMIN')")
+   public Anime findByIdAnime(@PathVariable long id){
+      return animeService.findByAnimeId(id);
+   }
+
 
    @PostMapping
    @PreAuthorize("hasAuthority('ADMIN')")
