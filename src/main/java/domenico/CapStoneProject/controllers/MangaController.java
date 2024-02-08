@@ -30,6 +30,15 @@ public class MangaController {
 
     }
 
+    @GetMapping("/titolo")
+    public List<Manga> findByTitleManga(@RequestParam(name = "titolo")String titolo){
+      return mangaService.filterByTitleManga(titolo);
+    }
+
+
+
+
+
     @PostMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)

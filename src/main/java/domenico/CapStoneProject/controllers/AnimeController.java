@@ -31,6 +31,11 @@ public class AnimeController {
    }
 
 
+   @GetMapping("titolo")
+   public List<Anime> filterByTitle(@RequestParam(name = "titolo")String titolo){
+      return animeService.filterByTitle(titolo);
+   }
+
    @PostMapping
    @PreAuthorize("hasAuthority('ADMIN')")
    @ResponseStatus(HttpStatus.CREATED)

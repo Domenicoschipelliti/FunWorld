@@ -65,6 +65,10 @@ public class AnimeService {
 
 
 
+    public List<Anime> filterByTitle(String titolo){
+        return animeDao.listAnimeRicerca(titolo);
+    }
+
     //--------------------upload image----------\\
 
 

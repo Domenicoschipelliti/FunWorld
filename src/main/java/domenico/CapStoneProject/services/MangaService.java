@@ -64,7 +64,12 @@ public class MangaService {
         }
 
     }
+  //---------------------QUERIES-------------\\
 
+
+    public List<Manga> filterByTitleManga(String titolo){
+        return mangaDao.findByTitleManga(titolo);
+    }
 }
 
 
