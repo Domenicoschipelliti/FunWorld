@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -46,6 +47,14 @@ public class MangaController {
         return mangaService.saveMangaDto(mangaDto);
     }
 
+    //------------------Upload----------------------\\
 
+
+    @PatchMapping("/{id}/upload")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String uploadImg(@RequestParam("image") MultipartFile file, @PathVariable int id) throws Exception {
+        return mangaService.uploadImageManga(file, id);
+    }
 
 }

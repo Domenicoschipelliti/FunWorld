@@ -1,8 +1,10 @@
 package domenico.CapStoneProject.services;
 
 import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import domenico.CapStoneProject.enteties.Anime;
 import domenico.CapStoneProject.enteties.Manga;
+import domenico.CapStoneProject.enteties.User;
 import domenico.CapStoneProject.exceptions.NotFound;
 import domenico.CapStoneProject.payload.MangaDto;
 import domenico.CapStoneProject.repositories.MangaDao;
@@ -12,7 +14,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -70,6 +74,19 @@ public class MangaService {
     public List<Manga> filterByTitleManga(String titolo){
         return mangaDao.findByTitleManga(titolo);
     }
+
+
+    //--------------------------Upload-------------------\\
+
+
+    public  String uploadImageManga(MultipartFile file, int id) throws IOException {
+        Manga found = this.findByIdIntManga(id);
+        String url = (String) cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap()).get("url");
+        found.setImmagine(url);
+        mangaDao.save(found);
+        return url;
+    }
+
 }
 
 

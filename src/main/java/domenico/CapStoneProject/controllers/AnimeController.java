@@ -31,7 +31,7 @@ public class AnimeController {
    }
 
 
-   @GetMapping("titolo")
+   @GetMapping("/titolo")
    public List<Anime> filterByTitle(@RequestParam(name = "titolo")String titolo){
       return animeService.filterByTitle(titolo);
    }
