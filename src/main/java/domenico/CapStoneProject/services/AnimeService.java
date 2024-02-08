@@ -24,7 +24,7 @@ public class AnimeService {
     private AnimeDao animeDao;
 
     @Autowired
-    Cloudinary cloudinary;
+    private Cloudinary cloudinary;
 
     public List<Anime> findAllAnime(){
         return animeDao.findAll();
@@ -54,6 +54,7 @@ public class AnimeService {
 
 
         Anime newAnime=new Anime();
+
         newAnime.setTrama(body.trama());
         newAnime.setVoto(body.voto());
         newAnime.setTitolo(body.titolo());

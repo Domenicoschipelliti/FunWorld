@@ -2,26 +2,21 @@ package domenico.CapStoneProject.configurationCsv;
 
 import domenico.CapStoneProject.enteties.Anime;
 import domenico.CapStoneProject.enteties.Manga;
-import domenico.CapStoneProject.services.AnimeService;
 import domenico.CapStoneProject.services.MangaService;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
 import java.io.IOException;
 
 @Component
-public class ImportCSV {
-    private final AnimeService animeService;
+public class ImportMangaCsv {
+    private final MangaService mangaService;
 
-
-    @Autowired
-    public ImportCSV(AnimeService animeService){
-        this.animeService=animeService;
-
+    public ImportMangaCsv(MangaService mangaService) {
+        this.mangaService = mangaService;
     }
 
     public void importFromCsv(String file){
@@ -36,19 +31,19 @@ public class ImportCSV {
                 int id = Integer.parseInt(record.get("id"));
 
 
-                Anime anime = new Anime();
-                anime.setTitolo(titolo);
-                anime.setImmagine(immagine);
-                anime.setVoto(voto);
-                anime.setTrama(trama);
-                anime.setId(id);
 
 
+                Manga manga=new Manga();
+                manga.setTitolo(titolo);
+                manga.setVoto(voto);
+                manga.setImmagine(immagine);
+                manga.setTrama(trama);
+                manga.setId(id);
 
 
-                System.out.println(anime);
-                animeService.saveAnime(anime);
+                System.out.println(manga);
 
+                mangaService.saveManga(manga);
             }
         } catch (IOException e) {
             e.printStackTrace();
