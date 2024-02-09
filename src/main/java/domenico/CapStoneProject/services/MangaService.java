@@ -68,6 +68,13 @@ public class MangaService {
         }
 
     }
+
+
+    public void  deleteManga(Integer id){
+        Manga manga=this.findByIdManga(id);
+        mangaDao.delete(manga);
+    }
+
   //---------------------QUERIES-------------\\
 
 

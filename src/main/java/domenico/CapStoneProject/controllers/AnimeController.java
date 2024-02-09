@@ -43,6 +43,12 @@ public class AnimeController {
      return animeService.saveAnimePost(anime);
    }
 
+   @DeleteMapping("/{id}")
+   @PreAuthorize("hasAuthority('ADMIN')")
+   public void deleteAnime(@PathVariable int id){
+      animeService.deleteAnime(id);
+   }
+
    //------------------upload immagini--------------\\
 
 

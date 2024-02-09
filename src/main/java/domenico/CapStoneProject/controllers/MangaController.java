@@ -47,6 +47,13 @@ public class MangaController {
         return mangaService.saveMangaDto(mangaDto);
     }
 
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void deleteManga(@PathVariable int id){
+        mangaService.deleteManga(id);
+    }
+
     //------------------Upload----------------------\\
 
 

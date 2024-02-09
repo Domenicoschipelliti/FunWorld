@@ -3,6 +3,7 @@ package domenico.CapStoneProject.services;
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import domenico.CapStoneProject.enteties.Anime;
+import domenico.CapStoneProject.enteties.Commenti;
 import domenico.CapStoneProject.enteties.User;
 import domenico.CapStoneProject.enums.Role;
 import domenico.CapStoneProject.exceptions.BadRequest;
@@ -61,6 +62,12 @@ public class AnimeService {
 
 
         return animeDao.save(newAnime);
+    }
+
+
+    public void deleteAnime(Integer id){
+        Anime anime=this.findbyAnimeId(id);
+        animeDao.delete(anime);
     }
 
 

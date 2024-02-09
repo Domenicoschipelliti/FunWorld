@@ -58,7 +58,6 @@ public class UserController {
 
 
     @DeleteMapping("/me")
-    @PreAuthorize("hasAuthority('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void  deleteUserPage(@AuthenticationPrincipal User userId){
        userService.userDelete(userId.getUserId());
@@ -69,7 +68,6 @@ public class UserController {
 
     @PatchMapping("/{userId}/upload")
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasAuthority('ADMIN')")
     public String uploadAvatarImg(@RequestParam("image") MultipartFile file, @PathVariable UUID userId) throws Exception {
         return userService.uploadImageAvatar(file,userId);
     }
