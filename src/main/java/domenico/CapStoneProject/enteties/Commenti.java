@@ -1,9 +1,9 @@
 package domenico.CapStoneProject.enteties;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -16,5 +16,15 @@ public class Commenti {
     @GeneratedValue
     private long idMessaggio;
     private String messaggio;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "comment_user",
+            joinColumns = @JoinColumn(name = "idMessaggio"),
+            inverseJoinColumns = @JoinColumn(name = "userId")
+
+    )
+    private List<User> user;
 
 }

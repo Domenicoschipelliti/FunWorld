@@ -1,10 +1,10 @@
 package domenico.CapStoneProject.enteties;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import org.w3c.dom.stylesheets.LinkStyle;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -21,6 +21,14 @@ public class Anime {
     private String immagine;
     private String trama;
     private String voto;
+    @ManyToMany
+    @JoinTable(
+            name = "anime_user",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "userId")
+
+    )
+    private List<User> user;
 
 
 

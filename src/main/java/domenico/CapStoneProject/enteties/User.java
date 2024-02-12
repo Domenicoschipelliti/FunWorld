@@ -30,6 +30,16 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
+    @ManyToMany(mappedBy = "user")
+    private List<Commenti> commentiList;
+
+    @ManyToMany(mappedBy = "user")
+    private List<Anime> animeList;
+
+    @ManyToMany(mappedBy = "user")
+    private List<Manga> mangaList;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(this.role.name()));
