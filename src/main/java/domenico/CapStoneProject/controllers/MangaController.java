@@ -48,6 +48,12 @@ public class MangaController {
     }
 
 
+    @PutMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public Manga putMangaIdBody(@PathVariable long id, @RequestBody Manga body){
+        return  mangaService.mangaUpdate(id, body);
+    }
+
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteManga(@PathVariable int id){

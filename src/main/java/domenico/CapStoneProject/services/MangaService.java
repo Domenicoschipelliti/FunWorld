@@ -69,6 +69,15 @@ public class MangaService {
 
     }
 
+    public  Manga mangaUpdate(long id,Manga body){
+        Manga update=this.findByIdManga(id);
+        update.setTitolo(body.getTitolo());
+        update.setVoto(body.getVoto());
+        update.setTrama(body.getTrama());
+        return mangaDao.save(update);
+
+    }
+
 
     public void  deleteManga(Integer id){
         Manga manga=this.findByIdManga(id);

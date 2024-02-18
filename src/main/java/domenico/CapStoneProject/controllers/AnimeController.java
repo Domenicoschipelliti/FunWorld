@@ -1,6 +1,7 @@
 package domenico.CapStoneProject.controllers;
 
 import domenico.CapStoneProject.enteties.Anime;
+import domenico.CapStoneProject.enteties.User;
 import domenico.CapStoneProject.payload.AnimeDto;
 import domenico.CapStoneProject.services.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -40,6 +42,12 @@ public class AnimeController {
    @ResponseStatus(HttpStatus.CREATED)
    public Anime newAnime(@RequestBody AnimeDto anime){
      return animeService.saveAnimePost(anime);
+   }
+
+   @PutMapping("/{id}")
+   @PreAuthorize("hasAuthority('ADMIN')")
+   public Anime putAnimeIdBody(@PathVariable long id, @RequestBody Anime body){
+      return  animeService.animeUpdate(id, body);
    }
 
    @DeleteMapping("/{id}")

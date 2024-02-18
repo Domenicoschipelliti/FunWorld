@@ -65,6 +65,15 @@ public class AnimeService {
     }
 
 
+    public  Anime animeUpdate(long id,Anime body){
+        Anime update=this.findByAnimeId(id);
+        update.setTitolo(body.getTitolo());
+        update.setVoto(body.getVoto());
+        update.setTrama(body.getTrama());
+        return animeDao.save(update);
+
+    }
+
     public void deleteAnime(Integer id){
         Anime anime=this.findbyAnimeId(id);
         animeDao.delete(anime);
