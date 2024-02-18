@@ -34,7 +34,7 @@ public class Handler {
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ErrorsPayload accessDenied(AccessDeniedException e){
-        return  new ErrorsPayload("il ruolo non ti consente di accedere a atale sezione",LocalDate.now());
+        return  new ErrorsPayload("il ruolo non ti consente di accedere a tale sezione",LocalDate.now());
     }
 
 

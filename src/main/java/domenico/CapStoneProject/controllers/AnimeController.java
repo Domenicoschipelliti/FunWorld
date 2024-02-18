@@ -25,7 +25,6 @@ public class AnimeController {
    }
 
    @GetMapping("/{id}")
-   @PreAuthorize("hasAuthority('ADMIN')")
    public Anime findByIdAnime(@PathVariable long id){
       return animeService.findByAnimeId(id);
    }
@@ -37,14 +36,14 @@ public class AnimeController {
    }
 
    @PostMapping
-   @PreAuthorize("hasAuthority('ADMIN')")
+   //@PreAuthorize("hasAuthority('ADMIN')")
    @ResponseStatus(HttpStatus.CREATED)
    public Anime newAnime(@RequestBody AnimeDto anime){
      return animeService.saveAnimePost(anime);
    }
 
    @DeleteMapping("/{id}")
-   @PreAuthorize("hasAuthority('ADMIN')")
+   //@PreAuthorize("hasAuthority('ADMIN')")
    public void deleteAnime(@PathVariable int id){
       animeService.deleteAnime(id);
    }
@@ -54,7 +53,7 @@ public class AnimeController {
 
    @PatchMapping("/{id}/upload")
    @ResponseStatus(HttpStatus.CREATED)
-   @PreAuthorize("hasAuthority('ADMIN')")
+   //@PreAuthorize("hasAuthority('ADMIN')")
    public String uploadImg(@RequestParam("image") MultipartFile file, @PathVariable int id) throws Exception {
       return animeService.uploadImage(file,id);
    }

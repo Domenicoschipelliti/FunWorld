@@ -47,6 +47,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String[] allowedPaths = {"/security/**"};
 
+
         return Stream.of(allowedPaths)
                 .anyMatch(path -> pathMatcher.match(path, request.getServletPath()));
     }

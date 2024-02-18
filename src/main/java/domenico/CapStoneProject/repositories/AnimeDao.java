@@ -12,6 +12,6 @@ import java.util.List;
 public interface AnimeDao extends JpaRepository<Anime,Long> {
     Anime findById(int id);
 
-    @Query("SELECT a FROM Anime a WHERE a.titolo= :titolo")
+    @Query("SELECT a FROM Anime a WHERE a.titolo LIKE %:titolo%")
     List<Anime> listAnimeRicerca(@Param("titolo") String titolo);
 }
