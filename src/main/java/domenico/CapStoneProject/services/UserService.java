@@ -46,6 +46,8 @@ public class UserService {
 
     }
 
+
+
     public void   userDelete(UUID userId){
         User delete=this.findById(userId);
         userDao.delete(delete);

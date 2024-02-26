@@ -13,6 +13,6 @@ import java.util.List;
 public interface MangaDao extends JpaRepository<Manga, Long> {
 
     Manga findById(int id);
-    @Query("SELECT m FROM Manga m WHERE m.titolo= :titolo")
+    @Query("SELECT m FROM Manga m WHERE m.titolo LIKE %:titolo%")
     List<Manga> findByTitleManga(@Param("titolo")String titolo);
 }

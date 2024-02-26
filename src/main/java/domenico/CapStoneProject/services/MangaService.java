@@ -74,12 +74,13 @@ public class MangaService {
         update.setTitolo(body.getTitolo());
         update.setVoto(body.getVoto());
         update.setTrama(body.getTrama());
+        update.setImmagine(body.getImmagine());
         return mangaDao.save(update);
 
     }
 
 
-    public void  deleteManga(Integer id){
+    public void  deleteManga(Long id){
         Manga manga=this.findByIdManga(id);
         mangaDao.delete(manga);
     }

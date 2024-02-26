@@ -56,7 +56,7 @@ public class MangaController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public void deleteManga(@PathVariable int id){
+    public void deleteManga(@PathVariable long id){
         mangaService.deleteManga(id);
     }
 

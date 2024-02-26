@@ -59,6 +59,7 @@ public class AnimeService {
         newAnime.setTrama(body.trama());
         newAnime.setVoto(body.voto());
         newAnime.setTitolo(body.titolo());
+        newAnime.setImmagine((body.immagine()));
 
 
         return animeDao.save(newAnime);
@@ -70,12 +71,13 @@ public class AnimeService {
         update.setTitolo(body.getTitolo());
         update.setVoto(body.getVoto());
         update.setTrama(body.getTrama());
+        update.setImmagine(body.getImmagine());
         return animeDao.save(update);
 
     }
 
-    public void deleteAnime(Integer id){
-        Anime anime=this.findbyAnimeId(id);
+    public void deleteAnime(Long id){
+        Anime anime=this.findByAnimeId(id);
         animeDao.delete(anime);
     }
 

@@ -31,7 +31,7 @@ public class User implements UserDetails {
     private Role role;
 
 
-    @ManyToMany(mappedBy = "user")
+    @ManyToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Commenti> commentiList;
 
     @ManyToMany(mappedBy = "user")
