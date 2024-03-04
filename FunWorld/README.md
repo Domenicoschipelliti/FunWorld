@@ -36,7 +36,8 @@ cloudinary.secret=${CLOUDINARY_SECRET}=codice segreto di Cloudinary.
 
 #Nota tutte queste cose verrano date da cLoudinary dopo la registrazione dal sito.
 
-
+Per Istruzioni sul Front-End andate qui:
+https://github.com/Domenicoschipelliti/funword/blob/master/README.md
 
 
 
