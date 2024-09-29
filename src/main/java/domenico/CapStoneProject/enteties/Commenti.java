@@ -18,13 +18,9 @@ public class Commenti {
     private String messaggio;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "comment_user",
-            joinColumns = @JoinColumn(name = "idMessaggio"),
-            inverseJoinColumns = @JoinColumn(name = "userId")
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 
-    )
-    private List<User> user;
 
 }

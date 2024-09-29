@@ -51,4 +51,5 @@ public class SecurityFilter extends OncePerRequestFilter {
         return Stream.of(allowedPaths)
                 .anyMatch(path -> pathMatcher.match(path, request.getServletPath()));
     }
+
 }

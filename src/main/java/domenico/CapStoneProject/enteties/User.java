@@ -31,8 +31,9 @@ public class User implements UserDetails {
     private Role role;
 
 
-    @ManyToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Commenti> commentiList;
+
 
     @ManyToMany(mappedBy = "user")
     private List<Anime> animeList;
